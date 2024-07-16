@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Arithmetic Operations</title> 
+    </head>
+    <body>
+        <h1>Arithmetic Operations</h1>
+        <button onclick="getInput()">Perform Operation</button>
+        <script>
+
+function calculate(operation, num1, num2) {
+    let result;
+    switch(operation) {
+        case 'add':
+            result = num1 + num2;
+            break;
+        case 'subtract':
+            result = num1 - num2;
+            break;
+        case 'multiply':
+            result = num1 * num2;
+            break;
+        case 'divide':
+            if (num2 === 0) {
+                alert("Division by zero is not allowed.");
+                return;
+            }
+            result = num1 / num2;
+            break;
+        default:
+            alert("Invalid operation.");
+    }
+    alert(`The result is: ${result}`);
+}
+
+
+function getInput() {
+    const operation = prompt("Enter the operation (add, subtract, multiply, divide):").toLowerCase();
+    if(operation != 'add' && operation != 'subtract' && operation != 'multiply' && operation != 'divide'){
+        alert('Invalid Operation');
+        return;
+    }
+    const num1 = parseFloat(prompt("Enter the first number:"));
+    if (isNaN(num1)) {
+        alert("Invalid input. Please enter numerical values.");
+        return;
+    }
+    const num2 = parseFloat(prompt("Enter the second number:"));    
+    if (isNaN(num2)) {
+        alert("Invalid input. Please enter numerical values.");
+        return;
+    }
+
+    calculate(operation, num1, num2);
+}
+
+
+        </script>
+    </body>
+</html>    
